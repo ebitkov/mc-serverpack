@@ -1,0 +1,83 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # all branches + tags, needed for the checks below
+
+      - name: Parse and validate tag
+        id: meta
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          if [[ ! "$TAG" =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            echo "::error::Tag '$TAG' is not of the form vMAJOR.MINOR.PATCH"
+            exit 1
+          fi
+          VERSION="${TAG#v}"
+          LINE="${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.x"
+
+          # The tagged commit must live on its release-line branch (e.g. 1.0.x)
+          if ! git rev-parse --verify --quiet "origin/$LINE" >/dev/null; then
+            echo "::error::Release branch '$LINE' does not exist. Create it before tagging $TAG."
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" "origin/$LINE"; then
+            echo "::error::Tag $TAG points to a commit that is not on branch '$LINE'."
+            exit 1
+          fi
+
+          # Only the highest version overall becomes "latest" (drives the public resource pack URL)
+          HIGHEST="$(git tag -l 'v*.*.*' | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n1)"
+          if [[ "$HIGHEST" == "$TAG" ]]; then LATEST=true; else LATEST=false; fi
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "line=$LINE" >> "$GITHUB_OUTPUT"
+          echo "latest=$LATEST" >> "$GITHUB_OUTPUT"
+          echo "Releasing $VERSION on $LINE (latest=$LATEST)"
+
+      - name: Build packs
+        run: scripts/build.sh "${{ steps.meta.outputs.version }}"
+
+      - name: Write release notes
+        run: |
+          SHA1="$(cat dist/resourcepack.zip.sha1)"
+          URL="https://github.com/${GITHUB_REPOSITORY}/releases/latest/download/resourcepack.zip"
+          cat > dist/notes.md <<EOF
+          ## Resource pack
+
+          SHA-1: \`${SHA1}\`
+
+          \`\`\`properties
+          resource-pack=${URL}
+          resource-pack-sha1=${SHA1}
+          \`\`\`
+          EOF
+          if [[ "${{ steps.meta.outputs.latest }}" != "true" ]]; then
+            echo "" >> dist/notes.md
+            echo "> This is a patch for an older release line and is **not** served by the \`latest\` URL." >> dist/notes.md
+          fi
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V="${{ steps.meta.outputs.version }}"
+          MC="$(tr -d '[:space:]' < MC_VERSION)"
+          gh release create "$GITHUB_REF_NAME" \
+            --title "$V (MC $MC)" \
+            --notes-file dist/notes.md \
+            --generate-notes \
+            --latest="${{ steps.meta.outputs.latest }}" \
+            dist/*.zip \
+            dist/resourcepack.zip.sha1
