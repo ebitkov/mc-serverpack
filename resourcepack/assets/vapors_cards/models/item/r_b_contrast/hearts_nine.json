@@ -1,0 +1,6 @@
+{
+    "parent": "vapors_cards:item/r_b_contrast/base",
+    "textures": {
+        "face": "vapors_cards:item/r_b_contrast/hearts_nine"
+    }
+}

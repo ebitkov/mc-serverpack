@@ -1,0 +1,407 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:display_context",
+    "cases": [
+      {
+        "when": [
+          "thirdperson_righthand",
+          "thirdperson_lefthand"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "vapors_cards:item/r_b_contrast/blank"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:range_dispatch",
+      "property": "minecraft:custom_model_data",
+      "entries": [
+        {
+          "threshold": 1,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_ace"
+          }
+        },
+        {
+          "threshold": 2,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_two"
+          }
+        },
+        {
+          "threshold": 3,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_three"
+          }
+        },
+        {
+          "threshold": 4,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_four"
+          }
+        },
+        {
+          "threshold": 5,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_five"
+          }
+        },
+        {
+          "threshold": 6,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_six"
+          }
+        },
+        {
+          "threshold": 7,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_seven"
+          }
+        },
+        {
+          "threshold": 8,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_eight"
+          }
+        },
+        {
+          "threshold": 9,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_nine"
+          }
+        },
+        {
+          "threshold": 10,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_ten"
+          }
+        },
+        {
+          "threshold": 11,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_jack"
+          }
+        },
+        {
+          "threshold": 12,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_queen"
+          }
+        },
+        {
+          "threshold": 13,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/spades_king"
+          }
+        },
+        {
+          "threshold": 14,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_ace"
+          }
+        },
+        {
+          "threshold": 15,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_two"
+          }
+        },
+        {
+          "threshold": 16,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_three"
+          }
+        },
+        {
+          "threshold": 17,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_four"
+          }
+        },
+        {
+          "threshold": 18,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_five"
+          }
+        },
+        {
+          "threshold": 19,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_six"
+          }
+        },
+        {
+          "threshold": 20,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_seven"
+          }
+        },
+        {
+          "threshold": 21,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_eight"
+          }
+        },
+        {
+          "threshold": 22,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_nine"
+          }
+        },
+        {
+          "threshold": 23,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_ten"
+          }
+        },
+        {
+          "threshold": 24,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_jack"
+          }
+        },
+        {
+          "threshold": 25,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_queen"
+          }
+        },
+        {
+          "threshold": 26,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/diamonds_king"
+          }
+        },
+        {
+          "threshold": 27,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_ace"
+          }
+        },
+        {
+          "threshold": 28,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_two"
+          }
+        },
+        {
+          "threshold": 29,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_three"
+          }
+        },
+        {
+          "threshold": 30,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_four"
+          }
+        },
+        {
+          "threshold": 31,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_five"
+          }
+        },
+        {
+          "threshold": 32,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_six"
+          }
+        },
+        {
+          "threshold": 33,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_seven"
+          }
+        },
+        {
+          "threshold": 34,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_eight"
+          }
+        },
+        {
+          "threshold": 35,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_nine"
+          }
+        },
+        {
+          "threshold": 36,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_ten"
+          }
+        },
+        {
+          "threshold": 37,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_jack"
+          }
+        },
+        {
+          "threshold": 38,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_queen"
+          }
+        },
+        {
+          "threshold": 39,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/clubs_king"
+          }
+        },
+        {
+          "threshold": 40,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_ace"
+          }
+        },
+        {
+          "threshold": 41,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_two"
+          }
+        },
+        {
+          "threshold": 42,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_three"
+          }
+        },
+        {
+          "threshold": 43,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_four"
+          }
+        },
+        {
+          "threshold": 44,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_five"
+          }
+        },
+        {
+          "threshold": 45,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_six"
+          }
+        },
+        {
+          "threshold": 46,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_seven"
+          }
+        },
+        {
+          "threshold": 47,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_eight"
+          }
+        },
+        {
+          "threshold": 48,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_nine"
+          }
+        },
+        {
+          "threshold": 49,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_ten"
+          }
+        },
+        {
+          "threshold": 50,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_jack"
+          }
+        },
+        {
+          "threshold": 51,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_queen"
+          }
+        },
+        {
+          "threshold": 52,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/hearts_king"
+          }
+        },
+        {
+          "threshold": 53,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/joker_black"
+          }
+        },
+        {
+          "threshold": 54,
+          "model": {
+            "type": "minecraft:model",
+            "model": "vapors_cards:item/r_b_contrast/joker_red"
+          }
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:model",
+        "model": "vapors_cards:item/r_b_contrast/blank"
+      }
+    }
+  },
+  "hand_animation_on_swap": true
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "vapors_cards:item/sepia/base",
+    "textures": {
+        "face": "vapors_cards:item/sepia/clubs_six"
+    }
+}

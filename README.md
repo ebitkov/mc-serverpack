@@ -9,6 +9,23 @@ MC_VERSION       Minecraft version of this release line (used in zip names)
 scripts/build.sh builds both zips into dist/
 ```
 
+## Resource pack contents
+
+### Playing cards
+
+Item models in the `vapors_cards` namespace. There are three styles: `classic`, `sepia` and `r_b_contrast`.
+
+- `vapors_cards:<style>_cards`: a single card, selected via `custom_model_data` (float):
+  `1`–`13` spades, `14`–`26` diamonds, `27`–`39` clubs, `40`–`52` hearts (ace → king each),
+  `53` black joker, `54` red joker, otherwise the card back. Held cards in third person show the back.
+- `vapors_cards:<style>_deck_stack`: a deck.
+
+```mcfunction
+give @s paper[item_model="vapors_cards:classic_cards",custom_model_data={floats:[40f]}]
+```
+
+See [resourcepack/CREDITS.md](resourcepack/CREDITS.md) for credits.
+
 ## Versioning
 
 We use [semver](https://semver.org), starting at `1.0.0`.

@@ -1,0 +1,6 @@
+{
+    "parent": "vapors_cards:item/classic/base",
+    "textures": {
+        "face": "vapors_cards:item/classic/spades_seven"
+    }
+}

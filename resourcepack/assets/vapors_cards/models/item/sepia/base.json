@@ -1,0 +1,7 @@
+{
+    "parent": "vapors_cards:item/card_base",
+    "textures": {
+        "card_base": "vapors_cards:item/sepia/card_base",
+        "card_face": "#face"
+    }
+}

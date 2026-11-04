@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "vapors_cards:item/r_b_contrast/deck_stack"
+  }
+}
