@@ -58,7 +58,7 @@ We use [semver](https://semver.org), starting at `1.0.0`.
    ```
 3. The [Release workflow](.github/workflows/release.yml) validates the tag against the branch,
    builds the packs and creates a GitHub release with:
-   - `datapack-<version>.<mc_version>.zip` – download and upload to the server manually
+   - `datapack-<version>.<mc_version>.zip` – deployed to exaroton automatically (see below)
      (e.g. `datapack-1.0.0.26.3.zip`)
    - `resourcepack-<version>.<mc_version>.zip`
    - `resourcepack.zip` + `resourcepack.zip.sha1` – stable name for the public URL
@@ -79,4 +79,22 @@ require-resource-pack=true
 ```
 
 Minecraft caches resource packs by SHA-1: update `resource-pack-sha1` after every release,
-otherwise players may keep a stale cached copy.
+otherwise players may keep a stale cached copy. The exaroton deploy below does this automatically.
+
+## Deployment (exaroton)
+
+For the **latest** release, the Release workflow runs [scripts/deploy-exaroton.sh](scripts/deploy-exaroton.sh), which uses the
+[exaroton API](https://developers.exaroton.com) to:
+
+1. upload the datapack as `<level-name>/datapacks/mc-serverpack.zip` (stable name, replaced on every release)
+2. set `resource-pack-sha1` in `server.properties`
+3. announce and restart the server if it is online (otherwise the changes apply on next start)
+
+Setup in the GitHub repo settings → *Secrets and variables* → *Actions*:
+
+| Kind     | Name                 | Value                                                        |
+|----------|----------------------|--------------------------------------------------------------|
+| Secret   | `SERVER_TOKEN`       | API token from https://exaroton.com/account/                 |
+| Secret   | `SERVER_ID`          | server ID (shown in the server URL / `GET /v1/servers/`)     |
+
+Remove any manually uploaded datapack zip from `datapacks/`, otherwise both are loaded.

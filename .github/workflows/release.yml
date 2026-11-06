@@ -81,3 +81,11 @@ jobs:
             --latest="${{ steps.meta.outputs.latest }}" \
             dist/*.zip \
             dist/resourcepack.zip.sha1
+
+      - name: Deploy to exaroton
+        # only the "latest" release is what players should get
+        if: steps.meta.outputs.latest == 'true'
+        env:
+          EXAROTON_TOKEN: ${{ secrets.SERVER_TOKEN }}
+          EXAROTON_SERVER_ID: ${{ secrets.SERVER_ID }}
+        run: scripts/deploy-exaroton.sh "${{ steps.meta.outputs.version }}"
