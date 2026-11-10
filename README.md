@@ -9,6 +9,10 @@ MC_VERSION       Minecraft version of this release line (used in zip names)
 scripts/build.sh builds both zips into dist/
 ```
 
+## Datapack contents
+
+- Mob heads (all skulls/heads incl. wall variants) are mineable with a pickaxe (`minecraft:mineable/pickaxe` tag).
+
 ## Resource pack contents
 
 ### Playing cards
